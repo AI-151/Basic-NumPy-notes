@@ -34,7 +34,7 @@ print(numpy.eye(3))
 # An Identity Matrix has ones running along from the top left to bottom right corner (in a square array)
 # Multiplying any matrix by the same dimension identity matrix results in the same matrix
 # It is similar to multiplying any number by one
-
+git --version
 print(numpy.arange(0, 10, 2))
 # Will essentially run a for i in range loop, where any values of i are added to a one-dimensional array
 # In this case the array produced is [0,2,4,6,8]

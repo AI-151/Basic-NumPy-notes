@@ -138,6 +138,7 @@ Features_Array = numpy.array([
     [100, 3],
     [120, 4]
 ])
+# A features array is the data using which a prediction model learns
 
 # Prices (in £k)
 Target_Array = numpy.array([
@@ -147,12 +148,19 @@ Target_Array = numpy.array([
     [280],
     [350]
 ])
+# The target array is the data which the model will use, and create an output for.
 
 Features_Array_With_Bias = numpy.hstack((Features_Array, numpy.ones((Features_Array.shape[0], 1))))
 # Creates a third column of 5 rows filled with ones, for the bias to be learned by the model
 # By matrix multiplication, the bias is calculated as 1*b, so missing it out or any other value is wrong
 
 weights = numpy.linalg.inv(Features_Array_With_Bias.T @ Features_Array_With_Bias) @ Features_Array_With_Bias.T @ Target_Array
+# The formula above is the standard way of calculating weights of each variable
+# The weights suggest how much each variable affects the price of the house
 new_house = numpy.array([[90, 3, 1]])
+# We can enter in new data for the model to create a prediction for
 predicted_price = new_house @ weights
+# Simply by multiplying the new value by our calculated weights, the model can predict a price...
 print("Predicted price (£k):", int(predicted_price[0][0].round(0)))
+# and output it!
+# This is a complicated bit of code compared to the functions above but is the part of the fundamentals of machine learning
